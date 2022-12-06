@@ -1,0 +1,233 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix hctl: <https://www.w3.org/2019/wot/hypermedia#> .
+@prefix http: <http://www.w3.org/2011/http#> .
+@prefix jsonschema: <https://www.w3.org/2019/wot/json-schema#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix wotsec: <https://www.w3.org/2019/wot/security#> .
+
+<https://ci.mines-stetienne.fr/kg/itmfactory/opcua#this> a td:Thing ;
+    dct:description "some description" ;
+    dct:title "fillingWorkshop" ;
+    td:hasActionAffordance [ a jsonschema:BooleanSchema,
+                td:ActionAffordance ;
+            dct:description "Indicates product in the hopper" ;
+            dct:title "I0.5" ;
+            jsonschema:readOnly "false" ;
+            jsonschema:writeOnly "true" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "POST" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:invokeAction ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ] ;
+            td:isIdempotent "false" ;
+            td:isSafe "false" ;
+            td:name "Presence product" ],
+        [ a jsonschema:BooleanSchema,
+                td:ActionAffordance ;
+            dct:description "Indicates hopper reaches to end position on backward direction" ;
+            dct:title "Q0.0" ;
+            jsonschema:readOnly "false" ;
+            jsonschema:writeOnly "true" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "POST" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:invokeAction ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ;
+                    td:isIdempotent "false" ;
+                    td:isSafe "false" ] ;
+            td:name "Axe_Remplissage_Impulsion" ],
+        [ a jsonschema:BooleanSchema,
+                td:ActionAffordance ;
+            dct:description "Indicates pot presence under hopper" ;
+            dct:title "I0.3" ;
+            jsonschema:readOnly "false" ;
+            jsonschema:writeOnly "true" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "POST" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:invokeAction ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ] ;
+            td:isIdempotent "false" ;
+            td:isSafe "false" ;
+            td:name "Presence pot" ],
+        [ a jsonschema:BooleanSchema,
+                td:ActionAffordance ;
+            dct:description "Indicates hopper reaches to end position on forward direction" ;
+            dct:title "Q0.1" ;
+            jsonschema:readOnly "false" ;
+            jsonschema:writeOnly "true" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "POST" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:invokeAction ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ;
+                    td:isIdempotent "false" ;
+                    td:isSafe "false" ] ;
+            td:name "Axe_Remplissage_Sens" ],
+        [ a jsonschema:BooleanSchema,
+                td:ActionAffordance ;
+            dct:description "Indicates Downstream accumulation" ;
+            dct:title "I0.6" ;
+            jsonschema:readOnly "false" ;
+            jsonschema:writeOnly "true" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "POST" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:invokeAction ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ] ;
+            td:isIdempotent "false" ;
+            td:isSafe "false" ;
+            td:name "Accumulation Aval B5" ],
+        [ a jsonschema:NumberSchema,
+                td:ActionAffordance ;
+            dct:description "Motor for hopper" ;
+            dct:title "MW220" ;
+            jsonschema:readOnly "false" ;
+            jsonschema:writeOnly "true" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "POST" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:invokeAction ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ;
+                    td:isIdempotent "false" ;
+                    td:isSafe "false" ] ;
+            td:name "Axe_Remplissage_Position_int" ],
+        [ a jsonschema:BooleanSchema,
+                td:ActionAffordance ;
+            dct:description "Indicates hopper reaches to initial position" ;
+            dct:title "I0.4" ;
+            jsonschema:readOnly "false" ;
+            jsonschema:writeOnly "true" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "POST" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:invokeAction ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ;
+                    td:isIdempotent "false" ;
+                    td:isSafe "false" ] ;
+            td:name "Came de prise d'origine" ],
+        [ a jsonschema:NumberSchema,
+                td:ActionAffordance ;
+            dct:description "Motor for conveyor belt" ;
+            dct:title "MW10" ;
+            jsonschema:readOnly "false" ;
+            jsonschema:writeOnly "true" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "POST" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:invokeAction ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ;
+                    td:isIdempotent "false" ;
+                    td:isSafe "false" ] ] ;
+    td:hasPropertyAffordance [ a jsonschema:BooleanSchema,
+                td:PropertyAffordance ;
+            dct:description "X Axis end limit status (green to read)" ;
+            dct:title "I0.1" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ],
+        [ a jsonschema:BooleanSchema,
+                td:PropertyAffordance ;
+            dct:description "Indicates product in the hopper" ;
+            dct:title "I0.5" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ] ;
+            td:isObservable "false" ;
+            td:name "Presence product" ],
+        [ a jsonschema:BooleanSchema,
+                td:PropertyAffordance ;
+            dct:description "Indicates pot presence under hopper" ;
+            dct:title "I0.3" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ] ;
+            td:isObservable "false" ;
+            td:name "Presence pot" ],
+        [ a jsonschema:NumberSchema,
+                td:PropertyAffordance ;
+            dct:description "Motor for hopper" ;
+            dct:title "MW220" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.Axe_Remplissage_Position_int> ] ;
+            td:isObservable "false" ;
+            td:name "MW220" ],
+        [ a jsonschema:BooleanSchema,
+                td:PropertyAffordance ;
+            dct:description "Indicates hopper reaches to end position on backward direction" ;
+            dct:title "Q0.0" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ] ;
+            td:isObservable "false" ;
+            td:name "Axe_Remplissage_Impulsion" ],
+        [ a jsonschema:BooleanSchema,
+                td:PropertyAffordance ;
+            dct:description "Indicates Downstream accumulation" ;
+            dct:title "I0.6" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ] ;
+            td:isObservable "false" ;
+            td:name "Accumulation Aval B5" ],
+        [ a jsonschema:BooleanSchema,
+                td:PropertyAffordance ;
+            dct:description "Indicates hopper reaches to initial position" ;
+            dct:title "I0.4" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ] ;
+            td:isObservable "false" ;
+            td:name "I0.4" ],
+        [ a jsonschema:NumberSchema,
+                td:PropertyAffordance ;
+            dct:description "Motor for conveyor belt" ;
+            dct:title "MW10" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ] ;
+            td:isObservable "false" ;
+            td:name "Etape conduite" ],
+        [ a jsonschema:BooleanSchema,
+                td:PropertyAffordance ;
+            dct:description "Indicates hopper reaches to end position on forward direction" ;
+            dct:title "Q0.1" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/Blank> ] ;
+            td:isObservable "false" ;
+            td:name "Axe_Remplissage_Sens" ] ;
+    td:hasSecurityConfiguration [ a wotsec:NoSecurityScheme ] .
+

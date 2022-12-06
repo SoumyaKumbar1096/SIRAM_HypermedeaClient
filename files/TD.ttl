@@ -1,0 +1,118 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix hctl: <https://www.w3.org/2019/wot/hypermedia#> .
+@prefix http: <http://www.w3.org/2011/http#> .
+@prefix jsonschema: <https://www.w3.org/2019/wot/json-schema#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix wotsec: <https://www.w3.org/2019/wot/security#> .
+
+<https://ci.mines-stetienne.fr/kg/itmfactory/opcua#this> a td:Thing ;
+    dct:description "some description" ;
+    dct:title "fillingWorkshop" ;
+    td:hasPropertyAffordance [ a jsonschema:NumberSchema,
+                td:PropertyAffordance ;
+            dct:description "Correction vitesse v20" ;
+            dct:title "MD150" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.Correction%20vitesse%20v20> ] ;
+            td:isObservable "false" ;
+            td:name "MD150" ],
+        [ a jsonschema:NumberSchema,
+                td:PropertyAffordance ;
+            dct:description "Axe_Remplissage_Position_int" ;
+            dct:title "MW220" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.Axe_Remplissage_Position_int> ] ;
+            td:isObservable "false" ;
+            td:name "MW220" ],
+        [ a jsonschema:BooleanSchema,
+                td:PropertyAffordance ;
+            dct:description "Axe sous puissance" ;
+            dct:title "I0.1" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.Axe%20sous%20puissance> ] ;
+            td:isObservable "false" ;
+            td:name "I0.1" ],
+        [ a jsonschema:NumberSchema,
+                td:PropertyAffordance ;
+            dct:description "Vitesse Jog" ;
+            dct:title "MD70" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.Vitesse%20Jog> ] ;
+            td:isObservable "false" ;
+            td:name "MD70" ],
+        [ a jsonschema:BooleanSchema,
+                td:PropertyAffordance ;
+            dct:description "Verine Verte" ;
+            dct:title "Q0.4" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.Verine%20Verte> ],
+                [ a hctl:Form ;
+                    http:methodName "PUT" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:writeProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.Verine%20Verte> ] ;
+            td:isObservable "false" ;
+            td:name "Q0.4" ],
+        [ a jsonschema:NumberSchema,
+                td:PropertyAffordance ;
+            dct:description "Acceleration V90" ;
+            dct:title "MD64" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "false" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "PUT" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:writeProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.Accélération%20V90> ],
+                [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.Accélération%20V90> ] ;
+            td:isObservable "false" ;
+            td:name "MD64" ],
+        [ a jsonschema:NumberSchema,
+                td:PropertyAffordance ;
+            dct:description "Vitesse Convoyeur" ;
+            dct:title "DB4.DBD2" ;
+            jsonschema:readOnly "true" ;
+            jsonschema:writeOnly "true" ;
+            td:hasForm [ a hctl:Form ;
+                    http:methodName "GET" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:readProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.vitesse_convoyeur> ],
+                [ a hctl:Form ;
+                    http:methodName "PUT" ;
+                    hctl:forContentType "application/json" ;
+                    hctl:hasOperationType td:writeProperty ;
+                    hctl:hasTarget <http://localhost:3001/ns=2;s=ITm%20Factory.DX10.vitesse_convoyeur> ] ;
+            td:isObservable "false" ;
+            td:name "DB4.DBD2" ] ;
+    td:hasSecurityConfiguration [ a wotsec:NoSecurityScheme ] .
+
